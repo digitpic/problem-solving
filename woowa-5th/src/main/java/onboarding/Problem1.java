@@ -80,4 +80,32 @@ public class Problem1 {
         }
     }
 
+    // 해당 페이지의 숫자들을 더하거나 곱한 것 중에 최댓값
+    public static int findMaxBetweenSumAndMulti(Integer num) {
+
+        int sum = 0;
+        int multi = 1;
+
+        // num이 0이 될 때까지 반복
+        while (num != 0) {
+
+            // num의 가장 오른쪽 자리 수 추출
+            int units = num % 10;
+
+            // 가장 오른쪽 자리 수를 sum에 더함
+            sum = sum + units;
+
+            // 가장 오른쪽 자리 수를 multi에 곱함
+            multi = multi * units;
+
+            // num의 가장 오른쪽 자리 수를 제거
+            num = num / 10;
+
+        }
+
+        int result = (sum < multi) ? multi : sum;
+
+        return result;
+    }
+
 }
