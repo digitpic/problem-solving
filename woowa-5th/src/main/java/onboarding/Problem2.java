@@ -6,28 +6,28 @@ import java.util.Deque;
 public class Problem2 {
 
     public static String solution(String cryptogram) {
-        String cleaned_cryptogram = remove_all_duplication_from(cryptogram);
+        String cleanedCryptogram = removeAllDuplicationFrom(cryptogram);
 
-        return cleaned_cryptogram;
+        return cleanedCryptogram;
     }
 
-    public static String remove_all_duplication_from(String cryptogram) {
-        String cleaned_cryptogram = "";
+    public static String removeAllDuplicationFrom(String cryptogram) {
+        String cleanedCryptogram = "";
 
         while (true) {
-            cleaned_cryptogram = remove_one_duplication_from(cryptogram);
+            cleanedCryptogram = removeOneDuplicationFrom(cryptogram);
 
-            if (cleaned_cryptogram.equals(cryptogram)){
+            if (cleanedCryptogram.equals(cryptogram)){
                 break;
             }
 
-            cryptogram = cleaned_cryptogram;
+            cryptogram = cleanedCryptogram;
         }
 
-        return cleaned_cryptogram;
+        return cleanedCryptogram;
     }
 
-    public static String remove_one_duplication_from(String cryptogram) {
+    public static String removeOneDuplicationFrom(String cryptogram) {
         int length = cryptogram.length();
 
         if (length == 0){
