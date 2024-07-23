@@ -35,4 +35,23 @@ public class Problem1 {
         return answer;
     }
 
+    // 1. 페이지 정보 오류 검증
+    public static boolean checkPagesAbnormality(List<Integer> pages){
+        // 각 페이지에 대한 정보 뽑기
+        int leftPage = pages.get(0);
+        int rightPage = pages.get(1);
+
+        // 페이지 정보가 1부터 400까지의 범위를 벗어나는 경우
+        if (leftPage < 0 || 400 < rightPage){
+            return true; // 예외 발생
+        }
+
+        // 좌측 페이지에 +1 한 값이 우측 페이지와 같지 않은 경우
+        if (leftPage + 1 != rightPage) {
+            return true; // 예외 발생
+        }
+
+        return false; // 예외가 발생하지 않음
+    }
+
 }
