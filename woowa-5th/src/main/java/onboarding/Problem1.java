@@ -54,4 +54,19 @@ public class Problem1 {
         return false; // 예외가 발생하지 않음
     }
 
+    // 2. 뽑은 페이지에 대한 연산 결과 중 각각의 최댓값
+    public static int findMaxBetweenPages(List<Integer> pages){
+        // 좌측 페이지에 대한 최대 수 찾기
+        int leftMax = findMaxBetweenSumAndMulti(pages.get(0));
+
+        // 우측 페이지에 대한 최대 수 찾기
+        int rightMax = findMaxBetweenSumAndMulti(pages.get(1));
+
+        // 두 수 중 최댓값 찾기
+        int result = (leftMax < rightMax) ? rightMax : leftMax;
+
+        // 최댓값 반환
+        return result;
+    }
+
 }
