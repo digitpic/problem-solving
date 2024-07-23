@@ -69,4 +69,15 @@ public class Problem1 {
         return result;
     }
 
+    // 3. 연산 결과를 바탕으로 승자를 반환하는 메서드
+    public static int checkWinner(int pobi, int crong) {
+        if (pobi == crong) {
+            return 0; // 무승부
+        } else if (pobi < crong) {
+            return 2; // 크롱 승리
+        } else {
+            return 1; // 포비 승리
+        }
+    }
+
 }
