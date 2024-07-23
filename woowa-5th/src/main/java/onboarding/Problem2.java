@@ -1,43 +1,65 @@
 package onboarding;
 
-// 2번 문제 클래스
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 public class Problem2 {
 
-    // 문제 풀이 메인 메서드
-    public static String solution(String crypto){
+    public static String solution(String cryptogram) {
+        String cleaned_cryptogram = remove_all_duplication_from(cryptogram);
 
-        // 암호문에서 중복된 문자 찾아서 계속 제거하기
-        while (true){
-
-            // 중복된 문자를 찾아서 제거
-            String removed = removeDuplicatedChar(crypto);
-
-            // 중복된 문자가 더 이상 없는 경우
-            if (removed.equals(crypto)){
-                break; // 반복문 종료
-            }
-
-            // 중복된 문자가 있는 경우
-            crypto = removed; // 암호문 갱신
-        }
-        return crypto;
+        return cleaned_cryptogram;
     }
 
-    public static String removeDuplicatedChar(String crypto){
+    public static String remove_all_duplication_from(String cryptogram) {
+        String cleaned_cryptogram = "";
 
-        // 중복된 문자를 찾아서 제거
-        for (int i = 0; i < crypto.length() - 1; i++){
+        while (true) {
+            cleaned_cryptogram = remove_one_duplication_from(cryptogram);
 
-            // 현재 문자와 다음 문자가 같은 경우
-            if (crypto.charAt(i) == crypto.charAt(i + 1)){
-
-                // 중복된 문자 제거
-                crypto = crypto.substring(0, i) + crypto.substring(i + 2);
+            if (cleaned_cryptogram.equals(cryptogram)){
+                break;
             }
+
+            cryptogram = cleaned_cryptogram;
         }
 
-        // 중복된 문자 제거한 결과 반환
-        return crypto;
+        return cleaned_cryptogram;
     }
 
+    public static String remove_one_duplication_from(String cryptogram) {
+        int length = cryptogram.length();
+
+        if (length == 0){
+            return "";
+        }
+
+        Deque<Character> dq = new ArrayDeque<>();
+        dq.addLast(cryptogram.charAt(0));
+
+        Character prev = cryptogram.charAt(0);
+
+        for (int i=1; i < length; i++) {
+            Character curr = cryptogram.charAt(i);
+
+            if (prev == curr){
+                if (dq.peekLast() == curr) {
+                    dq.removeLast();
+                }
+            } else {
+                dq.addLast(curr);
+            }
+
+            prev = curr;
+        }
+
+
+        String result = "";
+        while (!dq.isEmpty()){
+            result += dq.removeFirst();
+        }
+
+        return result;
+
+    }
 }
