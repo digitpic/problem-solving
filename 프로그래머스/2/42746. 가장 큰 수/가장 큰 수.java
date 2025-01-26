@@ -9,8 +9,9 @@ class Solution {
     public String solution(final int[] numbers) {
     
         List<String> stringNumbers = Arrays.stream(numbers)
-                                           .mapToObj(Integer::toString)
-                                           .collect(Collectors.toList());
+            .boxed()
+            .map(String::valueOf)
+            .collect(Collectors.toList());
 
         stringNumbers.sort(
             (number1, number2) -> (number2 + number1).compareTo(number1 + number2)
