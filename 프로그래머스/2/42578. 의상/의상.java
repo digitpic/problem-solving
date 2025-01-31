@@ -51,6 +51,6 @@ class Solution {
             count *= values.size() + 1; // r=1, nCr == n
         }
     
-        return count-1;
+        return count - 1;
     }
 }
