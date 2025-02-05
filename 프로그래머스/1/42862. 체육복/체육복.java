@@ -19,13 +19,13 @@ class Solution {
             if (people[i] == -1) {
                 
                 // i - 1 번 학생이 여분이 있다면
-                if (i - 1 >= 0 && people[i - 1] == 1) {
+                if (i > 0 && people[i - 1] == 1) {
                     people[i]++;
                     people[i - 1]--;
                 } 
                 
                 // i + 1 번 학생이 여분이 있다면
-                else if (i + 1 < people.length && people[i + 1] == 1) {
+                else if (i + 1 < n && people[i + 1] == 1) {
                     people[i]++;
                     people[i + 1]--;
                 }
