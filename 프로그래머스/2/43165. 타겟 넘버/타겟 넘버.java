@@ -29,7 +29,7 @@ class Solution {
             return 0;
         }
         
-        // 전부 돌지 않았다면
+        // 전부 돌지 않았다면 다음 재귀 호출
         return dfs(numbers, target, sum + numbers[count], count + 1) 
             + dfs(numbers, target, sum - numbers[count], count + 1);
     }
