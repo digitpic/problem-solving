@@ -22,9 +22,10 @@ class Solution {
             
             // 타겟 넘버가 만들어지면
             if (sum == target) {
+                // 경우의 수 추가
                 return 1;
             }
-            // 만들어지지 않으면
+            // 만들어지지 않으면 경우의 수 추가하지 않음
             return 0;
         }
         
