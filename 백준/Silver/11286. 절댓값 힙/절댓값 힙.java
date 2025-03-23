@@ -12,27 +12,24 @@ public class Main {
                     int secondAbs = Math.abs(second);
 
                     if (firstAbs == secondAbs) {
-                        if (first > second) {
-                            return 1;
-                        } else {
-                            return -1;
-                        }
+                        return first - second;
                     }
+
                     return firstAbs - secondAbs;
                 }
         );
 
         for (int i = 0; i < n; i++) {
-            int request = scanner.nextInt();
+            int number = scanner.nextInt();
 
-            if (request == 0) {
+            if (number == 0) {
                 if (queue.isEmpty()) {
                     System.out.println("0");
                 } else {
                     System.out.println(queue.poll());
                 }
             } else {
-                queue.add(request);
+                queue.add(number);
             }
         }
     }
