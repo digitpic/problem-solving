@@ -4,10 +4,10 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main {
-    private static int[] check = new int[4];
+    private static final int[] check = new int[4];
+    private static final int[] status = new int[4];
     private static int count = 0;
-
-    private static int[] status = new int[4];
+    private static int result = 0;
 
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -31,7 +31,6 @@ public class Main {
             add(dna[i]);
         }
 
-        int result = 0;
         if (count == 4) {
             result++;
         }
@@ -105,7 +104,7 @@ public class Main {
                 }
                 status[2]--;
                 break;
-                
+
             case 'T':
                 if (status[3] == check[3]) {
                     count--;
