@@ -3,7 +3,7 @@ import java.util.*;
 class Solution {
 
     private final List<String> answer = new ArrayList<>();
-    private final Map<String, PriorityQueue<String>> graph = new HashMap<>();
+    private final Map<String, Queue<String>> graph = new HashMap<>();
 
     public String[] solution(String[][] tickets) {
         for (String[] ticket : tickets) {
